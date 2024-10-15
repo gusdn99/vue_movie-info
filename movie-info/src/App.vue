@@ -1,7 +1,7 @@
 <template>
   <h1>영화정보</h1>
   
-  <!--
+  <!-- fdsafsdaa
     v-for="(item, index) in 데이터"
     :key="키값(배열번호)"
     반복문 돌리려먼 키값이 필요함.
