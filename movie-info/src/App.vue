@@ -1,7 +1,7 @@
 <template>
   <h1>영화정보</h1>
   
-  <!-- fdsafsdaa
+  <!-- 
     v-for="(item, index) in 데이터"
     :key="키값(배열번호)"
     반복문 돌리려먼 키값이 필요함.
@@ -28,7 +28,7 @@
         매개변수 i = 배열값
       -->
       <button
-        @:click="increaseLike(i)">좋아요
+        @click="increaseLike(i)">좋아요
       </button>
       <span>{{ movie.like }}</span>
       <p>
