@@ -1,10 +1,11 @@
 <template>
   <section id="detail" class="container"> <!-- container: 반응형 고정 너비 컨테이너 -->
     <!-- 
-      props.data를 통해 전달받은 데이터에 접근합니다.
-      $route.params.id를 인덱스로 사용하여 특정 항목에 접근합니다.
+      props.data를 통해 전달받은 데이터에 접근.
+      $route.params.id를 인덱스로 사용하여 특정 항목에 접근.
     -->
     <h1>{{ props.data[$route.params.id].title}}</h1> <!-- props 생략 가능 -->
+    
     <!--
       $route 객체를 통해 현재 라우트 정보에 접근
       params 객체는 URL의 동적 세그먼트 값을 포함
