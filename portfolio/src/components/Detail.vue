@@ -11,7 +11,7 @@
       params 객체는 URL의 동적 세그먼트 값을 포함
       id는 라우트 정의에서 사용한 동적 세그먼트의 이름
     -->
-    {{ $route.params.id }} 
+    <!-- {{ $route.params.id }} -->
     <article class="pb-5"> <!-- pb-5: 아래쪽 패딩을 크게 설정 -->
       <img 
         :src="`${data[$route.params.id].imgUrl}`" 
