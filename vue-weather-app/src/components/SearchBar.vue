@@ -1,18 +1,27 @@
 <template>
   <div class="search-bar">
-    <form>
+    <form @submit.prevent>
       <div class="form-group">
-        <input type="search" placeholder="지역을 입력해 주세요.">
-        <button>
+        <input @input="inputText = $event.target.value" type="search" placeholder="지역을 입력해 주세요.">
+        <button 
+          @click="
+            $store.commit('onSearchCity', inputText);
+            $store.dispatch('getWeather');
+          "
+        > <!-- inputText를 매개변수(payload)로 store에 전달 -->
           <font-awesome-icon :icon="['fas', 'magnifying-glass']" /> <!-- 아이콘 사용 -->
         </button>
       </div>
     </form>
   </div>
+  <p>{{ inputText }}</p>
 </template>
 
 <script setup>
+  import { ref } from 'vue';
 
+  const inputText = ref('');
+  const emits = defineEmits(['onSearchCity']); // 이벤트를 정의하고 함수를 반환
 </script>
 
 <style lang="scss" scoped>

@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <SearchBar />
-    <WeatherInfo />
+    <WeatherInfo /> <!-- defineProps를 props 변수로 받아와서 붙여줌. -->
   </div>
 </template>
 
@@ -11,6 +11,8 @@
 
 </script>
 
-<style lang="">
-  
+<style lang="scss" scoped>
+  .container {
+    padding: 20px;
+  }
 </style>

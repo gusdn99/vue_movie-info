@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
+import store from './store/store'
 
 // import the fontawesome core
 // 아이콘을 등록하고 관리하는 데 사용됨.
@@ -18,5 +19,6 @@ import { faBarsStaggered, faLocationDot, faMagnifyingGlass } from '@fortawesome/
 library.add(faBarsStaggered, faLocationDot, faMagnifyingGlass);
 
 createApp(App)
+  .use(store) // .use(store)로 Vuex store를 전역으로 주입
   .component('font-awesome-icon', FontAwesomeIcon) // 템플릿에서 <font-awesome-icon :icon="['fas', 'bars-staggered']"/> 와 같이 사용 가능
   .mount('#app')

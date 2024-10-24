@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar">
-    <button class="toggle">
+    <button class="toggle" @click="$store.commit('toggleButton')">
       <font-awesome-icon class="icon" :icon="['fas', 'bars-staggered']" /> <!-- 아이콘 사용 -->
     </button>
   </nav>
