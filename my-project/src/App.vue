@@ -1,3 +1,13 @@
+<template>
+  <div>
+    <h1>{{ title }}</h1>
+    <button @click="increaseCount">count++</button>
+    <p>{{ count }}</p> <!-- ref 변수는 템플릿에서 .value 없이 사용 가능 -->
+    <ChildComp :color="color" bgColor="yellow"/> <!-- ChildComp 컴포넌트에 props 전달 -->
+    <button @click="color='red'">change color</button>
+  </div>
+</template>
+
 <script setup>
   import { ref, onMounted, watch } from 'vue'; // Vue 3의 Composition API에서 제공하는 함수들을 import
   import ChildComp from './components/ChildComp.vue'; // 자식 컴포넌트 import
@@ -22,16 +32,6 @@
     console.log('color 변경')
   })
 </script>
-
-<template>
-  <div>
-    <h1>{{ title }}</h1>
-    <button @click="increaseCount">count++</button>
-    <p>{{ count }}</p> <!-- ref 변수는 템플릿에서 .value 없이 사용 가능 -->
-    <ChildComp :color="color" bgColor="yellow"/> <!-- ChildComp 컴포넌트에 props 전달 -->
-    <button @click="color='red'">change color</button>
-  </div>
-</template>
 
 <style scoped> /* scoped를 사용하면 이 스타일은 현재 컴포넌트에만 적용됨 (지역 스타일) */
   

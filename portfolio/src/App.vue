@@ -1,8 +1,3 @@
-<script setup>
-  import Navbar from './components/Navbar.vue';
-  import data from './assets/portfolio';
-</script>
-
 <template>
   <Navbar />
   
@@ -13,6 +8,11 @@
   -->
   <router-view :data="data"/>
 </template>
+
+<script setup>
+  import Navbar from './components/Navbar.vue';
+  import data from './assets/portfolio';
+</script>
 
 <style scoped lang="scss"> /* scss를 사용하려면 npm install -D sass 입력해서 의존성 추가해야 함 */
 

@@ -1,6 +1,7 @@
 <template>
   <div class="weather-info">
-    <p>{{ $store.state.weatherData.icon }}</p>
+    <!-- Vuex store의 state에 직접 접근 -->
+    <!-- <p>{{ $store.state.weatherData.icon }}</p> -->
     <div class="icon">
       <img :src="`https://openweathermap.org/img/wn/${$store.state.weatherData.icon}@2x.png`" :alt="$store.state.weatherData.icon">
     </div>
@@ -28,7 +29,7 @@
     & > div {
       margin-bottom: 20px;
       padding: 20px;
-      border: 1px solid #ccc;
+      /* border: 1px solid #ccc; */
     }
     .icon img {
       width: 140px;

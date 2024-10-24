@@ -1,7 +1,8 @@
 import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
-import store from './store/store'
+// import store from './store/store'
+import { createPinia } from 'pinia'
 
 // import the fontawesome core
 // 아이콘을 등록하고 관리하는 데 사용됨.
@@ -18,7 +19,10 @@ import { faBarsStaggered, faLocationDot, faMagnifyingGlass } from '@fortawesome/
 // 등록된 아이콘들만 프로젝트에서 사용할 수 있음.
 library.add(faBarsStaggered, faLocationDot, faMagnifyingGlass);
 
+const pinia = createPinia(); // pinia 객체를 가져와 변수에 할당
+
 createApp(App)
-  .use(store) // .use(store)로 Vuex store를 전역으로 주입
+  // .use(store) // .use(store)로 Vuex store를 전역으로 주입
+  .use(pinia)
   .component('font-awesome-icon', FontAwesomeIcon) // 템플릿에서 <font-awesome-icon :icon="['fas', 'bars-staggered']"/> 와 같이 사용 가능
   .mount('#app')
