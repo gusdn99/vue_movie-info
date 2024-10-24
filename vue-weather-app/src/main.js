@@ -23,6 +23,6 @@ const pinia = createPinia(); // pinia 객체를 가져와 변수에 할당
 
 createApp(App)
   // .use(store) // .use(store)로 Vuex store를 전역으로 주입
-  .use(pinia)
+  .use(pinia) // Pinia 플러그인 등록
   .component('font-awesome-icon', FontAwesomeIcon) // 템플릿에서 <font-awesome-icon :icon="['fas', 'bars-staggered']"/> 와 같이 사용 가능
   .mount('#app')

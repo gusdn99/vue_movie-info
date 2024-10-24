@@ -1,7 +1,7 @@
 <template>
   <!-- <button @click="$store.dispatch('getWeather')">getWeather</button> -->
   <Navbar />
-  <div v-if="!$store.state.toggle"> <!-- toggle이 false일 때 MainComp 표시 -->
+  <div v-if="!toggle"> <!-- toggle이 false일 때 MainComp 표시 -->
     <MainComp />
   </div>
   <div v-else> <!-- toggle이 true일 때 About 컴포넌트 표시 -->
@@ -15,20 +15,22 @@
   import MainComp from './components/MainComp.vue';
   import About from './components/About.vue';
   import { ref, onMounted } from 'vue';
-  import { useStore } from 'vuex'; // Vuex store 사용을 위한 함수
+  // import { useStore } from 'vuex'; // Vuex store 사용을 위한 함수
+  import { useStore } from './store/store'; // 스토어 함수 임포트
+  import { storeToRefs } from 'pinia'; // storeToRefs 헬퍼 함수 임포트
 
-  const store = useStore(); // store 인스턴스 생성
-  
+  // store 인스턴스 생성 
+  const store = useStore(); // useStore 호출하여 스토어 인스턴스 생성
+
+  // storeToRefs: store의 상태를 반응형으로 구조분해할당. actions는 storeToRefs 불필요
+	// toggle: store.state.toggle을 반응형으로 가져옴
+  const { toggle } = storeToRefs(store); // toggle 상태를 반응형으로 구조분해할당
+
   // 앱이 실행되면 날씨 데이터 가져오기
   onMounted(() => {
-    store.dispatch('getWeather');
+    // store.dispatch('getWeather'); Vuex 방식
+    store.getWeather(); // Pinia 방식
   })
-
-  // 검색어 이벤트 함수
-  const onSearchCity = (city) => { // city가 매개변수 inputText를 의미함.
-    weatherData.value.city = city; // 검색할 도시 업데이트
-    getWeather(); // 날씨 데이터 다시 가져오기
-  }
 </script>
 
 <style scoped lang="scss">

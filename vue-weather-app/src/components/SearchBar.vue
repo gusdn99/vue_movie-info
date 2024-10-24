@@ -7,10 +7,15 @@
           commit으로 mutation 호출하여 검색할 도시 변경
           dispatch로 action 호출하여 변경된 도시의 날씨 데이터 요청
         -->
+        <!-- 
+          store의 actions 직접 호출
+          actions의 onSearchCity 함수 호출
+          actions의 getWeather 함수 호출
+        -->
         <button 
           @click="
-            $store.commit('onSearchCity', inputText);
-            $store.dispatch('getWeather');
+            store.onSearchCity(inputText);
+            store.getWeather();
           "
         > <!-- inputText를 매개변수(payload)로 store에 전달 -->
           <font-awesome-icon :icon="['fas', 'magnifying-glass']" /> <!-- 아이콘 사용 -->
@@ -23,6 +28,12 @@
 
 <script setup>
   import { ref } from 'vue';
+  import { useStore } from '../store/store'; // 스토어 함수 임포트
+  import { storeToRefs } from 'pinia'; // storeToRefs 헬퍼 함수 임포트
+
+  // 스토어 가져오기
+  const store = useStore(); // useStore 호출하여 스토어 인스턴스 생성
+
   const inputText = ref(''); // 입력값을 저장할 반응형 변수
 
   // 이 컴포넌트가 발생시킬 수 있는 이벤트 정의
